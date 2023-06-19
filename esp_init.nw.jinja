@@ -1,0 +1,28 @@
+Start esp
+
+echo
+
+geometry units angstrom noautosym
+{{ config }}
+end
+
+ecce_print ecce.out
+
+basis "ao basis" cartesian print
+ H library 6-31g*
+ O library 6-31g*
+ C library 6-31g*
+ F library 6-31g*
+end
+
+scf
+  RHF
+  nopen 0
+end
+
+driver
+maxiter 50
+
+end
+task scf optimize
+task scf energy 
